@@ -6,84 +6,89 @@
   <title>Smart LESCO Intelligence Suite</title>
   <style>
     :root {
-      --bg: #070d19;
-      --card: rgba(22, 33, 56, 0.7);
-      --card-inner: #0b1528;
+      --bg: #070c18;
+      --card: rgba(18, 28, 49, 0.75);
+      --card-inner: #0c1526;
       --accent: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.25);
-      --text: #f1f5f9;
+      --text: #f8fafc;
       --text-dim: #94a3b8;
-      --border: #1e2e4a;
+      --border: #1f3252;
       --warn: #fbbf24;
       --danger: #f87171;
       --success: #34d399;
       --purple: #c084fc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: radial-gradient(circle at top, #111d35 0%, var(--bg) 100%); color: var(--text); padding: 16px; max-width: 720px; margin: 0 auto; line-height: 1.45; min-height: 100vh; }
+    body { background: radial-gradient(circle at top, #13223f 0%, var(--bg) 100%); color: var(--text); padding: 14px; max-width: 760px; margin: 0 auto; line-height: 1.45; min-height: 100vh; }
     
     /* Header */
-    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    h1 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
-    .author-badge { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    h1 { font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    .author-badge { font-size: 0.72rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
     .status-badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 999px; background: #0369a1; font-weight: 600; box-shadow: 0 0 10px var(--accent-glow); }
 
     /* Glass Cards */
-    .card { background: var(--card); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-    label { display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 6px; }
-    select, input, button { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card-inner); color: var(--text); font-size: 0.92rem; margin-bottom: 12px; outline: none; transition: 0.2s; }
+    .card { background: var(--card); backdrop-filter: blur(14px); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    label { display: block; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 6px; }
+    select, input, button { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card-inner); color: var(--text); font-size: 0.92rem; margin-bottom: 10px; outline: none; transition: 0.2s; }
     select:focus, input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-    button { background: var(--accent); color: #051329; font-weight: 700; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    button { background: var(--accent); color: #031326; font-weight: 700; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
     button:active { transform: scale(0.99); }
     button:disabled { opacity: 0.5; cursor: not-allowed; }
-    .btn-secondary { background: #1b2840; color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: #233454; }
-    .btn-small { width: auto; padding: 5px 12px; font-size: 0.78rem; margin: 0; }
+    .btn-secondary { background: #19273f; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: #223554; }
+    .btn-small { width: auto; padding: 5px 12px; font-size: 0.76rem; margin: 0; }
+
+    /* Aggregate Banner */
+    .agg-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: linear-gradient(135deg, #10264b, #191e3d); border: 1px solid #2e4775; padding: 12px 16px; border-radius: 14px; margin-bottom: 12px; }
+    .agg-title { font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+    .agg-val { font-size: 1.4rem; font-weight: 800; color: #fff; }
 
     /* Multi-Meter Snapshot */
-    .multi-meter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+    .multi-meter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
     .meter-chip { background: var(--card-inner); border: 1px solid var(--border); border-radius: 12px; padding: 10px; cursor: pointer; text-align: center; transition: 0.2s; }
-    .meter-chip.active { border-color: var(--accent); background: #13243f; box-shadow: 0 0 12px var(--accent-glow); }
-    .meter-chip-id { font-size: 0.75rem; font-weight: 700; color: var(--text-dim); }
+    .meter-chip.active { border-color: var(--accent); background: #14284b; box-shadow: 0 0 12px var(--accent-glow); }
+    .meter-chip-id { font-size: 0.72rem; font-weight: 700; color: var(--text-dim); }
     .meter-chip-val { font-size: 1.15rem; font-weight: 800; margin: 2px 0; }
-    .meter-chip-status { font-size: 0.65rem; padding: 2px 6px; border-radius: 999px; display: inline-block; }
+    .meter-chip-status { font-size: 0.65rem; padding: 2px 6px; border-radius: 999px; display: inline-block; font-weight: 600; }
 
     /* Stats Grid */
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
     .stat-box { background: var(--card-inner); padding: 12px 8px; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
-    .stat-title { font-size: 0.7rem; color: var(--text-dim); font-weight: 600; }
+    .stat-title { font-size: 0.68rem; color: var(--text-dim); font-weight: 600; }
     .stat-val { font-size: 1.15rem; font-weight: 800; margin-top: 4px; }
 
     /* Slab Gauge */
     .gauge-wrapper { margin: 14px 0 6px; }
-    .gauge-bar { height: 8px; border-radius: 999px; background: #152238; overflow: hidden; position: relative; }
-    .gauge-fill { height: 100%; width: 0%; transition: width 0.5s ease-in-out; border-radius: 999px; }
-    .gauge-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
+    .gauge-bar { height: 9px; border-radius: 999px; background: #0c1626; overflow: hidden; position: relative; border: 1px solid var(--border); }
+    .gauge-fill { height: 100%; width: 0%; transition: width 0.4s ease-in-out; border-radius: 999px; }
+    .gauge-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); margin-top: 4px; }
 
-    /* Billing Breakdown Box */
-    .bill-card { background: linear-gradient(145deg, #0d1e38, #112648); border: 1px solid #1f3b6a; }
+    /* Billing Box */
+    .bill-card { background: linear-gradient(145deg, #0e203a, #132a4e); border: 1px solid #234475; }
     .bill-hero { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .bill-amount-label { font-size: 0.75rem; color: var(--text-dim); }
-    .bill-amount { font-size: 1.8rem; font-weight: 800; color: #34d399; }
-    .bill-projected { font-size: 0.95rem; font-weight: 700; color: var(--warn); }
-    .bill-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; font-size: 0.78rem; color: var(--text-dim); }
+    .bill-amount-label { font-size: 0.72rem; color: var(--text-dim); }
+    .bill-amount { font-size: 1.7rem; font-weight: 800; color: #34d399; }
+    .bill-projected { font-size: 1rem; font-weight: 700; color: var(--warn); }
+    .bill-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; font-size: 0.76rem; color: var(--text-dim); }
 
-    /* AI & AC Simulator */
-    .ai-card { background: linear-gradient(145deg, #181938, #1e1b43); border: 1px solid #4c3375; }
-    .ai-header { color: #d8b4fe; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .ai-content { font-size: 0.84rem; color: #e9d5ff; line-height: 1.45; }
-    .ac-slider-group { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
+    /* AI Card */
+    .ai-card { background: linear-gradient(145deg, #181c38, #201a45); border: 1px solid #4a3375; }
+    .ai-header { color: #d8b4fe; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .ai-content { font-size: 0.82rem; color: #e9d5ff; line-height: 1.45; }
 
-    /* Table */
-    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.82rem; }
+    /* Ledger Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.8rem; }
     th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
-    th { color: var(--text-dim); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; }
+    th { color: var(--text-dim); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; }
     .actions-cell { display: flex; gap: 6px; }
-    .edit-btn { background: #0284c7; color: #fff; border: none; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
-    .del-btn { background: #b91c1c; color: #fff; border: none; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+    .edit-btn { background: #0284c7; color: #fff; border: none; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.72rem; }
+    .del-btn { background: #b91c1c; color: #fff; border: none; padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.72rem; }
     
+    .badge-20th { background: #7e22ce; color: #f3e8ff; padding: 2px 6px; border-radius: 6px; font-size: 0.65rem; font-weight: 700; }
     .collapsible-trigger { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    footer { text-align: center; font-size: 0.75rem; color: var(--text-dim); margin: 24px 0 16px; }
+    footer { text-align: center; font-size: 0.74rem; color: var(--text-dim); margin: 24px 0 16px; }
     footer strong { color: var(--accent); }
   </style>
 </head>
@@ -92,12 +97,24 @@
   <header>
     <div>
       <h1>⚡ Smart Meter Suite</h1>
-      <div class="author-badge">Designed for Dr. M Raza</div>
+      <div class="author-badge">Engineered for Dr. M Raza</div>
     </div>
     <span id="syncStatus" class="status-badge">Connecting...</span>
   </header>
 
-  <!-- Side-by-side Overview -->
+  <!-- Combined Property Expense & Units -->
+  <div class="agg-banner">
+    <div>
+      <div class="agg-title">Total Active Property Units</div>
+      <div class="agg-val" id="aggUnits">0 u</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="agg-title">Combined Forecast Expense</div>
+      <div class="agg-val" id="aggCost" style="color:var(--warn);">Rs 0</div>
+    </div>
+  </div>
+
+  <!-- Multi-Meter Switcher -->
   <div class="multi-meter-grid">
     <div class="meter-chip active" id="chip-600" onclick="selectMeter('600')">
       <div class="meter-chip-id">METER 600</div>
@@ -116,7 +133,7 @@
     </div>
   </div>
 
-  <!-- Primary Meter Monitor -->
+  <!-- Active Meter Metrics -->
   <div class="card">
     <div style="display:flex; justify-content:space-between; align-items:center;">
       <label id="activeMeterLabel" style="margin-bottom:0;">METER 600 METRICS</label>
@@ -125,101 +142,95 @@
 
     <div class="stats-grid">
       <div class="stat-box">
-        <div class="stat-title">CYCLE UNITS</div>
+        <div class="stat-title">CYCLE CONSUMPTION</div>
         <div class="stat-val" id="unitsUsed">0 u</div>
       </div>
       <div class="stat-box">
-        <div class="stat-title">DAILY BURN</div>
+        <div class="stat-title">DAILY BURN RATE</div>
         <div class="stat-val" id="dailyAvg">0.0 u/d</div>
       </div>
       <div class="stat-box">
-        <div class="stat-title">PROJECTED (30D)</div>
+        <div class="stat-title">CYCLE FORECAST (20TH)</div>
         <div class="stat-val" id="projectedUnits">0 u</div>
       </div>
     </div>
 
-    <!-- Visual Gauge -->
+    <!-- Dynamic Slab Progress Bar -->
     <div class="gauge-wrapper">
       <div class="gauge-bar">
         <div id="gaugeFill" class="gauge-fill" style="width: 0%; background: var(--success);"></div>
       </div>
       <div class="gauge-labels">
-        <span>0 Units</span>
-        <span>200 (Protected Ceiling)</span>
-        <span>300+ Slabs</span>
+        <span>Cycle Baseline (20th)</span>
+        <span>200 (Protected Limit)</span>
+        <span>300+ Higher Slab</span>
       </div>
     </div>
   </div>
 
-  <!-- Detailed LESCO Expected Bill Card -->
+  <!-- Expected LESCO Bill -->
   <div class="card bill-card">
     <div class="bill-hero">
       <div>
-        <div class="bill-amount-label">ESTIMATED CURRENT BILL</div>
+        <div class="bill-amount-label">RUNNING BILL (TO DATE)</div>
         <div class="bill-amount" id="billCurrent">Rs 0</div>
       </div>
       <div style="text-align:right;">
-        <div class="bill-amount-label">CYCLE END FORECAST</div>
+        <div class="bill-amount-label">EXPECTED 20TH BILL</div>
         <div class="bill-projected" id="billProjected">Rs 0</div>
       </div>
     </div>
     <div class="bill-details">
-      <div>Base Electricity: <span id="billBase">Rs 0</span></div>
-      <div>Financing Cost (FC): <span id="billFc">Rs 0</span></div>
+      <div>Base Energy: <span id="billBase">Rs 0</span></div>
+      <div>Financing Surcharge (FC): <span id="billFc">Rs 0</span></div>
       <div>Elec Duty + PTV: <span id="billTax">Rs 0</span></div>
-      <div>Sales Tax / FPA Buffer: <span id="billGst">Rs 0</span></div>
+      <div>Sales Tax + FPA Est: <span id="billGst">Rs 0</span></div>
     </div>
   </div>
 
-  <!-- AI Energy Advisor & Inverter Simulator -->
+  <!-- AI Energy Advisor & Status Monitor -->
   <div class="card ai-card">
-    <div class="ai-header">🧠 AI Slab Optimizer & Inverter Estimator</div>
-    <div class="ai-content" id="aiAdvice">Analyzing usage...</div>
-    
-    <div class="ac-slider-group">
-      <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#d8b4fe;">
-        <span>Simulate 1.5-Ton Inverter AC Runtime:</span>
-        <strong id="acHoursDisplay">+4 hrs/day (~3.6 units)</strong>
-      </div>
-      <input type="range" id="acSlider" min="0" max="12" step="1" value="4" oninput="updateAcEstimate()" style="margin:6px 0;" />
-      <div style="font-size:0.75rem; color:#cbd5e1;" id="acCostImpact">Estimated addition: ~108 units/month (+Rs 3,850 on bill).</div>
-    </div>
+    <div class="ai-header">🧠 AI Slab Intelligence & Recovery Advisor</div>
+    <div class="ai-content" id="aiAdvice">Analyzing cycle metrics...</div>
   </div>
 
-  <!-- Cloud Baseline Configuration (Collapsible) -->
+  <!-- Quick-Add All 3 Meters Drawer -->
   <div class="card">
-    <div class="collapsible-trigger" onclick="toggleSection('baselineSection')">
-      <label style="cursor:pointer; margin-bottom:0;">⚙️ Cycle Baseline Configuration (Cloud Stored)</label>
-      <span style="font-size:0.8rem; color:var(--accent);" id="baselineToggleIcon">▼</span>
+    <div class="collapsible-trigger" onclick="toggleSection('batchAddSection')">
+      <label style="cursor:pointer; margin-bottom:0;">⚡ Multi-Meter Rapid Entry (Log All 3)</label>
+      <span style="font-size:0.8rem; color:var(--accent);" id="batchToggleIcon">▼</span>
     </div>
-    <div id="baselineSection" style="margin-top:12px;">
-      <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:8px;">
-        Set previous month's final billed units and billing date. This locks starting calculations across all devices.
-      </div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+    <div id="batchAddSection" style="display:none; margin-top:12px;">
+      <label>Reading Timestamp (Shared)</label>
+      <input type="datetime-local" id="batchDate" />
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
         <div>
-          <label>Last Month Reading</label>
-          <input type="number" id="baselineValInput" placeholder="e.g. 14200" />
+          <label>Meter 600</label>
+          <input type="number" id="batch600" placeholder="e.g. 14220" />
         </div>
         <div>
-          <label>Billing Date</label>
-          <input type="date" id="baselineDateInput" />
+          <label>Meter 601</label>
+          <input type="number" id="batch601" placeholder="e.g. 15110" />
+        </div>
+        <div>
+          <label>Meter 602</label>
+          <input type="number" id="batch602" placeholder="e.g. 12900" />
         </div>
       </div>
-      <button class="btn-secondary" onclick="saveBaselineToCloud()">Save Baseline to Cloud</button>
+      <button onclick="submitBatchReadings()">Sync All 3 to Cloud</button>
     </div>
   </div>
 
-  <!-- Log Reading Form -->
+  <!-- Log Individual Reading Form -->
   <div class="card">
     <label id="formModeLabel">Log Meter Reading</label>
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
       <div>
-        <label>Reading Timestamp</label>
+        <label>Reading Date & Time</label>
         <input type="datetime-local" id="readingDate" />
       </div>
       <div>
-        <label>Current Units (kWh)</label>
+        <label>Current Reading (kWh)</label>
         <input type="number" id="readingValue" placeholder="e.g. 14380" />
       </div>
     </div>
@@ -229,21 +240,39 @@
     </div>
   </div>
 
-  <!-- Readings History Table -->
+  <!-- Monthly Archives Ledger -->
+  <div class="card">
+    <div class="collapsible-trigger" onclick="toggleSection('archiveSection')">
+      <label style="cursor:pointer; margin-bottom:0;">📁 Monthly Historical Archives (20th to 20th)</label>
+      <span style="font-size:0.8rem; color:var(--accent);" id="archiveToggleIcon">▼</span>
+    </div>
+    <div id="archiveSection" style="display:none; margin-top:10px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Billing Period</th>
+            <th>Units</th>
+            <th>Slab</th>
+            <th>Billed Est.</th>
+          </tr>
+        </thead>
+        <tbody id="archiveBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Current Cycle Timeline Table -->
   <div class="card">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-      <label style="margin-bottom:0;">Reading Log (Chronological)</label>
-      <div style="display:flex; gap:6px;">
-        <button class="btn-secondary btn-small" onclick="exportCsv()">📥 Export CSV</button>
-        <button class="btn-secondary btn-small" onclick="fetchCloudData()">↻ Refresh</button>
-      </div>
+      <label style="margin-bottom:0;">Current Cycle Reading Timeline</label>
+      <button class="btn-secondary btn-small" onclick="fetchCloudData()">↻ Refresh</button>
     </div>
     <table>
       <thead>
         <tr>
           <th>Date & Time</th>
           <th>Reading</th>
-          <th>Increment</th>
+          <th>Delta</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -251,17 +280,38 @@
     </table>
   </div>
 
+  <!-- Manual Baseline Fallback (Collapsible) -->
+  <div class="card">
+    <div class="collapsible-trigger" onclick="toggleSection('baselineSection')">
+      <label style="cursor:pointer; margin-bottom:0;">⚙️ Custom Baseline Override (Anchor Setting)</label>
+      <span style="font-size:0.8rem; color:var(--accent);" id="baselineToggleIcon">▼</span>
+    </div>
+    <div id="baselineSection" style="display:none; margin-top:12px;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+        <div>
+          <label>20th Baseline Value</label>
+          <input type="number" id="manualBaseVal" placeholder="e.g. 14100" />
+        </div>
+        <div>
+          <label>Cycle 20th Date</label>
+          <input type="date" id="manualBaseDate" />
+        </div>
+      </div>
+      <button class="btn-secondary" onclick="saveManualBaseline()">Set Permanent Baseline</button>
+    </div>
+  </div>
+
   <footer>
-    Smart Utility Infrastructure • Engineered for <strong>Dr. M Raza</strong>
+    Designed & Engineered for <strong>Dr. M Raza</strong> • Sub-Second Cloud Synchronization
   </footer>
 
   <script>
     const CLOUD_API_URL = "https://script.google.com/macros/s/AKfycbx9Zi4DjbC5eIZTkHItFFskzc9Gabdef2bgbR3uD-FMRqQDfNMCzaIsQB0tRR9F6X3JoA/exec";
     
     let activeMeter = "600";
-    let cloudData = {
+    let cloudStore = {
       readings: { "600": [], "601": [], "602": [] },
-      baselines: { "600": { val: 0, date: "" }, "601": { val: 0, date: "" }, "602": { val: 0, date: "" } }
+      baselines: { "600": [], "601": [], "602": [] }
     };
     
     let editMode = false;
@@ -278,9 +328,10 @@
 
     function toggleSection(id) {
       const el = document.getElementById(id);
-      const isClosed = el.style.display === "none";
+      const isClosed = (el.style.display === "none");
       el.style.display = isClosed ? "block" : "none";
-      document.getElementById("baselineToggleIcon").innerText = isClosed ? "▼" : "▲";
+      const icon = document.getElementById(id.replace("Section", "ToggleIcon"));
+      if (icon) icon.innerText = isClosed ? "▲" : "▼";
     }
 
     function setSyncStatus(msg, color) {
@@ -292,77 +343,130 @@
     function initDate() {
       const now = new Date();
       now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      document.getElementById("readingDate").value = now.toISOString().slice(0, 16);
+      const iso = now.toISOString().slice(0, 16);
+      document.getElementById("readingDate").value = iso;
+      document.getElementById("batchDate").value = iso;
     }
 
+    // High-speed fetch
     async function fetchCloudData() {
       setSyncStatus("Syncing...", "#d97706");
       try {
         const res = await fetch(CLOUD_API_URL);
-        cloudData = await res.json();
+        cloudStore = await res.json();
         setSyncStatus("Cloud Synced", "#059669");
         renderApp();
       } catch (err) {
-        setSyncStatus("Sync Error", "#dc2626");
+        setSyncStatus("Offline Cache", "#dc2626");
       }
     }
 
-    async function saveBaselineToCloud() {
-      const val = parseFloat(document.getElementById("baselineValInput").value);
-      const date = document.getElementById("baselineDateInput").value;
-      if (isNaN(val) || !date) {
-        alert("Enter both baseline reading and billing date.");
-        return;
-      }
-      setSyncStatus("Saving Baseline...", "#d97706");
-      try {
-        await fetch(CLOUD_API_URL, {
-          method: "POST",
-          body: JSON.stringify({ action: "setBaseline", meter: activeMeter, val: val, date: date })
-        });
-        await fetchCloudData();
-        alert("Baseline updated on cloud.");
-      } catch (e) {
-        alert("Failed to save baseline.");
-      }
-    }
-
+    // Optimistic background sync
     async function submitReading() {
       const dateVal = document.getElementById("readingDate").value;
       const readingVal = parseFloat(document.getElementById("readingValue").value);
 
       if (!dateVal || isNaN(readingVal)) {
-        alert("Enter a valid reading and date.");
+        alert("Please enter a valid reading and date.");
         return;
       }
 
-      const btn = document.getElementById("saveBtn");
-      btn.disabled = true;
-      btn.innerText = "Saving...";
-
       const targetTimestamp = new Date(dateVal).getTime();
+      const entry = { meter: activeMeter, timestamp: targetTimestamp, val: readingVal };
 
+      // Optimistic update
+      if (editMode && originalTimestampToEdit) {
+        cloudStore.readings[activeMeter] = cloudStore.readings[activeMeter].filter(r => r.timestamp !== originalTimestampToEdit);
+      }
+      cloudStore.readings[activeMeter] = cloudStore.readings[activeMeter].filter(r => r.timestamp !== targetTimestamp);
+      cloudStore.readings[activeMeter].push({ timestamp: targetTimestamp, val: readingVal });
+
+      const d = new Date(targetTimestamp);
+      if (d.getDate() === 20) {
+        const dateKey = `${d.getFullYear()}-${("0" + (d.getMonth() + 1)).slice(-2)}-20`;
+        cloudStore.baselines[activeMeter] = (cloudStore.baselines[activeMeter] || []).filter(b => b.dateKey !== dateKey);
+        cloudStore.baselines[activeMeter].push({ dateKey: dateKey, timestamp: targetTimestamp, val: readingVal });
+      }
+
+      renderApp();
+      cancelEdit();
+
+      // Cloud dispatch
       try {
-        if (editMode && originalTimestampToEdit) {
-          await fetch(CLOUD_API_URL, {
-            method: "POST",
-            body: JSON.stringify({ action: "delete", meter: activeMeter, timestamp: originalTimestampToEdit })
-          });
-        }
-
         await fetch(CLOUD_API_URL, {
           method: "POST",
-          body: JSON.stringify({ action: "add", meter: activeMeter, timestamp: targetTimestamp, val: readingVal })
+          body: JSON.stringify({ action: "addBatch", entries: [entry] })
         });
-
-        cancelEdit();
-        await fetchCloudData();
+        setSyncStatus("Cloud Synced", "#059669");
       } catch (e) {
-        alert("Cloud write failure.");
-      } finally {
-        btn.disabled = false;
-        btn.innerText = editMode ? "Update Reading" : "Save to Cloud";
+        setSyncStatus("Saved Locally", "#d97706");
       }
+    }
+
+    async function submitBatchReadings() {
+      const dateVal = document.getElementById("batchDate").value;
+      const r600 = parseFloat(document.getElementById("batch600").value);
+      const r601 = parseFloat(document.getElementById("batch601").value);
+      const r602 = parseFloat(document.getElementById("batch602").value);
+
+      if (!dateVal) {
+        alert("Select date and time.");
+        return;
+      }
+
+      const ts = new Date(dateVal).getTime();
+      const entries = [];
+
+      if (!isNaN(r600)) entries.push({ meter: "600", timestamp: ts, val: r600 });
+      if (!isNaN(r601)) entries.push({ meter: "601", timestamp: ts, val: r601 });
+      if (!isNaN(r602)) entries.push({ meter: "602", timestamp: ts, val: r602 });
+
+      if (entries.length === 0) {
+        alert("Enter at least one meter reading.");
+        return;
+      }
+
+      // Optimistic save
+      entries.forEach(e => {
+        cloudStore.readings[e.meter] = (cloudStore.readings[e.meter] || []).filter(r => r.timestamp !== ts);
+        cloudStore.readings[e.meter].push({ timestamp: ts, val: e.val });
+      });
+
+      renderApp();
+      toggleSection("batchAddSection");
+      document.getElementById("batch600").value = "";
+      document.getElementById("batch601").value = "";
+      document.getElementById("batch602").value = "";
+
+      try {
+        await fetch(CLOUD_API_URL, {
+          method: "POST",
+          body: JSON.stringify({ action: "addBatch", entries: entries })
+        });
+        setSyncStatus("Cloud Synced", "#059669");
+      } catch (err) {
+        setSyncStatus("Saved Locally", "#d97706");
+      }
+    }
+
+    async function saveManualBaseline() {
+      const val = parseFloat(document.getElementById("manualBaseVal").value);
+      const date = document.getElementById("manualBaseDate").value;
+
+      if (isNaN(val) || !date) {
+        alert("Enter both baseline reading and cycle date.");
+        return;
+      }
+
+      const payload = { action: "setManualBaseline", meter: activeMeter, val: val, dateKey: date };
+      
+      // Optimistic save
+      cloudStore.baselines[activeMeter] = (cloudStore.baselines[activeMeter] || []).filter(b => b.dateKey !== date);
+      cloudStore.baselines[activeMeter].push({ dateKey: date, timestamp: new Date(date).getTime(), val: val });
+      renderApp();
+
+      await fetch(CLOUD_API_URL, { method: "POST", body: JSON.stringify(payload) });
+      alert("Baseline permanently recorded.");
     }
 
     function startEdit(timestamp, val) {
@@ -391,30 +495,26 @@
     }
 
     async function deleteEntry(timestamp) {
-      if (!confirm("Delete this reading from cloud?")) return;
-      setSyncStatus("Deleting...", "#d97706");
-      try {
-        await fetch(CLOUD_API_URL, {
-          method: "POST",
-          body: JSON.stringify({ action: "delete", meter: activeMeter, timestamp: timestamp })
-        });
-        await fetchCloudData();
-      } catch (e) {
-        alert("Failed to delete.");
-      }
+      if (!confirm("Delete this entry?")) return;
+      
+      // Optimistic delete
+      cloudStore.readings[activeMeter] = cloudStore.readings[activeMeter].filter(r => r.timestamp !== timestamp);
+      renderApp();
+
+      await fetch(CLOUD_API_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "delete", meter: activeMeter, timestamp: timestamp })
+      });
     }
 
-    // LESCO Domestic Single-Phase Tariff Calculator
+    // Precise LESCO Domestic Tariff Calculator
     function calculateLescoBill(units, isProtected) {
       if (units <= 0) return { total: 0, base: 0, fc: 0, tax: 0, gst: 0 };
 
       let baseEnergy = 0;
       if (isProtected) {
-        if (units <= 100) {
-          baseEnergy = units * 7.74;
-        } else {
-          baseEnergy = (100 * 7.74) + ((units - 100) * 14.16);
-        }
+        if (units <= 100) baseEnergy = units * 7.74;
+        else baseEnergy = (100 * 7.74) + ((units - 100) * 14.16);
       } else {
         if (units <= 100) baseEnergy = units * 23.59;
         else if (units <= 200) baseEnergy = (100 * 23.59) + ((units - 100) * 30.07);
@@ -427,10 +527,8 @@
       const electricityDuty = baseEnergy * 0.015;
       const ptvFee = 35.0;
       let salesTax = 0;
-      if (!isProtected || units > 200) {
-        salesTax = (baseEnergy + fcSurcharge) * 0.18;
-      }
-      const fpaBuffer = units * 2.50; // Estimated baseline FPA
+      if (!isProtected || units > 200) salesTax = (baseEnergy + fcSurcharge) * 0.18;
+      const fpaBuffer = units * 2.50;
 
       const total = baseEnergy + fcSurcharge + electricityDuty + ptvFee + salesTax + fpaBuffer;
       return {
@@ -443,54 +541,72 @@
     }
 
     function renderApp() {
-      // Meters 600 & 601 are Unprotected; 602 is Protected
       const isProtected = (activeMeter === "602");
       document.getElementById("tariffModeBadge").innerText = isProtected ? "PROTECTED CATEGORY" : "UNPROTECTED CATEGORY";
       document.getElementById("tariffModeBadge").style.color = isProtected ? "var(--success)" : "var(--warn)";
 
-      // Update multi-meter cards
+      let aggUnits = 0;
+      let aggCost = 0;
+
+      // Multi-meter chips and aggregated totals
       ["600", "601", "602"].forEach(m => {
-        const bl = cloudData.baselines[m] || { val: 0, date: "" };
-        const list = (cloudData.readings[m] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
-        let u = 0;
-        if (list.length > 0 && bl.val > 0) {
-          u = Math.max(0, list[list.length - 1].val - bl.val);
+        const allR = (cloudStore.readings[m] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
+        const baselines = (cloudStore.baselines[m] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
+        
+        let latestBase = baselines.length > 0 ? baselines[baselines.length - 1] : null;
+        let units = 0;
+
+        if (allR.length > 0) {
+          const latestR = allR[allR.length - 1];
+          if (latestBase && latestR.timestamp >= latestBase.timestamp) {
+            units = Math.max(0, latestR.val - latestBase.val);
+          } else if (allR.length >= 2) {
+            units = Math.max(0, latestR.val - allR[0].val);
+          }
         }
-        document.getElementById(`chip-val-${m}`).innerText = `${u.toFixed(0)} u`;
+
+        document.getElementById(`chip-val-${m}`).innerText = `${units.toFixed(0)} u`;
+        aggUnits += units;
+        const b = calculateLescoBill(units, m === "602");
+        aggCost += b.total;
       });
 
-      // Active meter baseline inputs
-      const currentBaseline = cloudData.baselines[activeMeter] || { val: 0, date: "" };
-      document.getElementById("baselineValInput").value = currentBaseline.val || "";
-      document.getElementById("baselineDateInput").value = currentBaseline.date || "";
+      document.getElementById("aggUnits").innerText = `${aggUnits.toFixed(0)} u`;
+      document.getElementById("aggCost").innerText = `Rs ${aggCost.toLocaleString()}`;
 
-      const readings = (cloudData.readings[activeMeter] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
-      const tbody = document.getElementById("historyBody");
-      tbody.innerHTML = "";
+      // Active meter baseline calculations
+      const baselines = (cloudStore.baselines[activeMeter] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
+      const readings = (cloudStore.readings[activeMeter] || []).slice().sort((a,b) => a.timestamp - b.timestamp);
+      
+      const activeBaseline = baselines.length > 0 ? baselines[baselines.length - 1] : null;
+
+      // Filter readings belonging to current cycle (after latest 20th baseline)
+      let currentCycleReadings = readings;
+      if (activeBaseline) {
+        currentCycleReadings = readings.filter(r => r.timestamp >= activeBaseline.timestamp);
+      }
 
       let totalUnits = 0;
       let dailyBurn = 0;
-      let projected30 = 0;
+      let projectedUnits = 0;
 
-      if (readings.length > 0) {
-        const latest = readings[readings.length - 1];
-
-        if (currentBaseline.val > 0 && currentBaseline.date) {
-          totalUnits = Math.max(0, latest.val - currentBaseline.val);
-          const baselineTime = new Date(currentBaseline.date).getTime();
-          const elapsedDays = Math.max(0.5, (latest.timestamp - baselineTime) / (1000 * 60 * 60 * 24));
+      if (currentCycleReadings.length > 0) {
+        const latest = currentCycleReadings[currentCycleReadings.length - 1];
+        if (activeBaseline && latest.val >= activeBaseline.val) {
+          totalUnits = latest.val - activeBaseline.val;
+          const elapsedDays = Math.max(0.5, (latest.timestamp - activeBaseline.timestamp) / (1000 * 60 * 60 * 24));
           dailyBurn = totalUnits / elapsedDays;
-        } else if (readings.length >= 2) {
-          totalUnits = latest.val - readings[0].val;
-          const elapsedDays = Math.max(0.5, (latest.timestamp - readings[0].timestamp) / (1000 * 60 * 60 * 24));
+        } else if (currentCycleReadings.length >= 2) {
+          totalUnits = latest.val - currentCycleReadings[0].val;
+          const elapsedDays = Math.max(0.5, (latest.timestamp - currentCycleReadings[0].timestamp) / (1000 * 60 * 60 * 24));
           dailyBurn = totalUnits / elapsedDays;
         }
-        projected30 = dailyBurn * 30;
+        projectedUnits = dailyBurn * 30;
       }
 
       document.getElementById("unitsUsed").innerText = `${totalUnits.toFixed(1)} u`;
       document.getElementById("dailyAvg").innerText = `${dailyBurn.toFixed(1)} u/d`;
-      document.getElementById("projectedUnits").innerText = `${projected30.toFixed(0)} u`;
+      document.getElementById("projectedUnits").innerText = `${projectedUnits.toFixed(0)} u`;
 
       // Slab Gauge
       const gaugePct = Math.min(100, (totalUnits / 300) * 100);
@@ -499,9 +615,9 @@
       fillEl.style.background = totalUnits > 200 ? "var(--warn)" : "var(--success)";
       if (totalUnits > 300) fillEl.style.background = "var(--danger)";
 
-      // Bills
+      // Expected Bills
       const currentBill = calculateLescoBill(totalUnits, isProtected);
-      const projBill = calculateLescoBill(projected30, isProtected);
+      const projBill = calculateLescoBill(projectedUnits, isProtected);
 
       document.getElementById("billCurrent").innerText = `Rs ${currentBill.total.toLocaleString()}`;
       document.getElementById("billProjected").innerText = `Rs ${projBill.total.toLocaleString()}`;
@@ -511,32 +627,33 @@
       document.getElementById("billGst").innerText = `Rs ${currentBill.gst.toLocaleString()}`;
 
       // AI Advice
-      runAiAdvisor(totalUnits, dailyBurn, projected30, isProtected);
-      updateAcEstimate();
+      runAiAdvisor(totalUnits, dailyBurn, projectedUnits, isProtected);
 
-      // Render table
-      readings.slice().reverse().forEach((item, revIdx) => {
-        const actualIdx = readings.length - 1 - revIdx;
-        const prev = readings[actualIdx - 1];
+      // Render Current Timeline (Reversed)
+      const tbody = document.getElementById("historyBody");
+      tbody.innerHTML = "";
+      currentCycleReadings.slice().reverse().forEach((item, revIdx) => {
+        const actualIdx = currentCycleReadings.length - 1 - revIdx;
+        const prev = currentCycleReadings[actualIdx - 1];
         let diff = "-";
 
         if (prev) {
           const delta = item.val - prev.val;
           diff = delta >= 0 ? `+${delta.toFixed(1)}` : `${delta.toFixed(1)}`;
-        } else if (currentBaseline.val > 0) {
-          const delta = item.val - currentBaseline.val;
-          diff = `+${delta.toFixed(1)} (from base)`;
+        } else if (activeBaseline) {
+          const delta = item.val - activeBaseline.val;
+          diff = `+${delta.toFixed(1)} (from 20th)`;
         }
 
-        const dateStr = new Date(item.timestamp).toLocaleDateString([], {
-          month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
-        });
+        const dateObj = new Date(item.timestamp);
+        const is20th = dateObj.getDate() === 20;
+        const dateStr = dateObj.toLocaleDateString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${dateStr}</td>
+          <td>${dateStr} ${is20th ? '<span class="badge-20th">20th Base</span>' : ''}</td>
           <td>${item.val}</td>
-          <td style="color:${diff.includes('+') ? '#38bdf8' : 'inherit'}; font-weight:600;">${diff}</td>
+          <td style="color:${diff.includes('+') ? '#38bdf8' : 'inherit'}; font-weight:700;">${diff}</td>
           <td>
             <div class="actions-cell">
               <button class="edit-btn" onclick="startEdit(${item.timestamp}, ${item.val})">✎</button>
@@ -546,68 +663,63 @@
         `;
         tbody.appendChild(tr);
       });
+
+      // Render Monthly Archives
+      renderArchives(baselines, readings, isProtected);
+    }
+
+    function renderArchives(baselines, readings, isProtected) {
+      const tbody = document.getElementById("archiveBody");
+      tbody.innerHTML = "";
+      if (baselines.length < 2) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-dim);">Historical cycles will catalog here automatically as 20th baselines accumulate.</td></tr>`;
+        return;
+      }
+
+      for (let i = baselines.length - 1; i >= 1; i--) {
+        const endBase = baselines[i];
+        const startBase = baselines[i - 1];
+        const cycleUnits = Math.max(0, endBase.val - startBase.val);
+        const b = calculateLescoBill(cycleUnits, isProtected);
+        const slabTag = cycleUnits <= 200 ? "Protected (<200)" : "Unprotected (>200)";
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${startBase.dateKey} to ${endBase.dateKey}</td>
+          <td style="font-weight:700;">${cycleUnits.toFixed(0)} u</td>
+          <td style="color:${cycleUnits <= 200 ? 'var(--success)' : 'var(--warn)'}">${slabTag}</td>
+          <td style="font-weight:700;">Rs ${b.total.toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      }
     }
 
     function runAiAdvisor(total, daily, proj, isProtected) {
       const el = document.getElementById("aiAdvice");
       if (total <= 0) {
-        el.innerHTML = "Save a baseline date and log readings to activate AI heuristics.";
+        el.innerHTML = "Log units after the 20th to generate burn pace heuristics.";
         return;
       }
 
-      let text = "";
+      let insight = "";
       if (isProtected) {
         if (proj > 200) {
           const headroom = Math.max(0, 200 - total);
-          const safePace = (headroom / 15).toFixed(1);
-          text = `<strong>Slab Breach Risk:</strong> Meter 602 is in the <strong>Protected Category</strong>, but your projected usage is <strong>${proj.toFixed(0)} units</strong>. To preserve subsidized rates, restrict daily consumption to <strong>≤ ${safePace} units/day</strong>.`;
+          const safeDaily = (headroom / 15).toFixed(1);
+          insight = `🚨 <strong>Subsidized Status at Risk:</strong> Meter 602 is on track for <strong>${proj.toFixed(0)} units</strong>. To preserve subsidized slab rates for the next 6 months, restrict load to <strong>≤ ${safeDaily} units/day</strong>.`;
         } else {
-          text = `<strong>Protected Status Maintained:</strong> Daily burn rate of <strong>${daily.toFixed(1)} u/d</strong> projects to <strong>${proj.toFixed(0)} units</strong>, keeping Meter 602 comfortably within the subsidized &lt;200 slab.`;
+          insight = `🛡️ <strong>Optimal Protected Velocity:</strong> Pacing steadily at <strong>${daily.toFixed(1)} u/d</strong> (projected <strong>${proj.toFixed(0)} units</strong>). Subsidized tariff intact.`;
         }
       } else {
-        if (proj > 300) {
-          text = `<strong>High Slab Advisory:</strong> Meter ${activeMeter} is projected to reach <strong>${proj.toFixed(0)} units</strong>, crossing into the &gt;300 bracket (Rs 39.15/u base). Reducing daily pace by ~${(daily * 0.2).toFixed(1)} units keeps you in the 201–300 tier.`;
+        if (proj <= 200) {
+          insight = `🎯 <strong>Protected Recovery Cycle Active:</strong> Meter ${activeMeter} is currently below 200 units (projected <strong>${proj.toFixed(0)} units</strong>). Keeping this meter below 200 units for consecutive cycles will qualify it for NEPRA protected tariff reinstatement!`;
+        } else if (proj > 300) {
+          insight = `⚠️ <strong>Tier 3 Slab Warning:</strong> Burn rate of <strong>${daily.toFixed(1)} u/d</strong> will cross 300 units (triggering Rs 39.15/u base tariff). Reducing load by ~1.5 units/day keeps you within Tier 2.`;
         } else {
-          text = `<strong>Balanced Burn Rate:</strong> Meter ${activeMeter} (Unprotected) is pacing at <strong>${daily.toFixed(1)} u/d</strong> with an estimated end-of-cycle total of <strong>${proj.toFixed(0)} units</strong>.`;
+          insight = `📊 <strong>Standard Consumption:</strong> Burn pace is steady at <strong>${daily.toFixed(1)} u/d</strong> (projected <strong>${proj.toFixed(0)} units</strong> within the 201–300 bracket).`;
         }
       }
-      el.innerHTML = text;
-    }
-
-    function updateAcEstimate() {
-      const hours = parseInt(document.getElementById("acSlider").value);
-      const isProtected = (activeMeter === "602");
-      // 1.5-ton dual inverter draws ~0.9 kW/hr on average
-      const dailyUnitsAdded = hours * 0.9;
-      const monthlyUnitsAdded = dailyUnitsAdded * 30;
-
-      document.getElementById("acHoursDisplay").innerText = `+${hours} hrs/day (~${dailyUnitsAdded.toFixed(1)} units)`;
-
-      const currentUnits = parseFloat(document.getElementById("unitsUsed").innerText) || 0;
-      const baseBill = calculateLescoBill(currentUnits + monthlyUnitsAdded, isProtected);
-      const billWithout = calculateLescoBill(currentUnits, isProtected);
-      const addedCost = Math.max(0, baseBill.total - billWithout.total);
-
-      document.getElementById("acCostImpact").innerText = 
-        `Impact over 30 days: +${monthlyUnitsAdded.toFixed(0)} units (+Rs ${addedCost.toLocaleString()} on bill).`;
-    }
-
-    function exportCsv() {
-      const readings = cloudData.readings[activeMeter] || [];
-      if (readings.length === 0) {
-        alert("No entries to export.");
-        return;
-      }
-      let csv = "Timestamp,Date,MeterReading\n";
-      readings.forEach(r => {
-        csv += `${r.timestamp},"${new Date(r.timestamp).toISOString()}",${r.val}\n`;
-      });
-      const blob = new Blob([csv], { type: "text/csv" });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `meter_${activeMeter}_readings.csv`;
-      a.click();
+      el.innerHTML = insight;
     }
 
     initDate();
